@@ -1,24 +1,40 @@
-# README
+# Anniv.Note
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## サイト概要
+### サイトテーマ
+どのような記念日があるか調べたり、記念日の過ごし方について自分のアイディアを投稿できるコミュニティサイト
+​
+### テーマを選んだ理由
+出産後～1歳までは子育て雑誌でお祝い事を確認して、詳細をウェブやSNSで調べてお祝いをしました。<br>
+1歳をすぎると「七五三」しか記載されていないことが多い一方、SNSでは「1000日記念日」「誕生日の過ごし方」等を見かけて、もっと早く知りたかったと感じることが多くあります。<br>
+また、SNSで情報を見かけてもすぐに見失ってしまうこともありました。<br>
+そこで、記念日の情報がまとめられていて、記念日のアイディアを発信できるサービスがあると便利だと考えました。<br>
+生まれてからのイベント以外にも、カップルや夫婦の記念日、推しの記念日、趣味の記念日など様々なお祝いの仕方を共有することで、「なんでもない日」も「記念日」に変わると毎日が少し楽しくなると考え、このテーマにしました。
+​
+### ターゲットユーザ
+- お祝いイベントが好きな人
+- 出産後、こどもの記念日について知りたい人
+- 人間関係を円滑に保ちたい人
+- 人や物とのつながりを大切にしたい人
+- 毎日をもう少し楽しく過ごしたい人
+​
+### 主な利用シーン
+- どのような記念日イベントがあるか検索するとき
+- お祝いの仕方を調べたいとき
+- 仲直りのきっかけを探しているとき
+- 自分の記念日アイディアを投稿するとき
+​
+## 設計書
+後ほど作成予定
+​
+## 開発環境
+- OS：Windows
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Visual Studio Code（VSCode）
+​
+## 使用素材
+- 後ほど作成予定
+著作権を考慮し、架空のデータを扱う予定です。
+なお今後、実在するデータを利用する際には、事前に著作権保持者と契約を結んだ上で利用します。
