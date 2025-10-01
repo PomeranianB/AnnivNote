@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   root to: "homes#top"
   get "/about" => "homes#about", as: 'about'
-  get "/users/mypage" => "users#mypage"
+  get "/users/mypage" => "users#mypage", as: 'mypage'
   resources :posts, only: [:new, :show, :edit, :index, :destroy]
-  resources :users, only: [:show, :edit, :mypage]
+  resources :users, only: [:show, :edit]
   resources :user_images, only: [:new, :create, :mypage, :destroy]
   resources :post_images, only: [:new, :create, :index, :show, :destroy]
 end
