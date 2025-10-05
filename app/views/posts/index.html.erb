@@ -1,6 +1,9 @@
 <% @posts.each do |post| %>
   <div>
-    <p>タイトル：<%= post.title %></p>
+  <%= link_to post_path(post.id) do %>
+  <p>タイトル：<%= post.title %></p>
+  <% end %>
+  
     <p>本文：<%= post.body %></p>
     <% @post.images.each do |image| %>
       <%= image_tag image, size: "200x200" %> <br>
