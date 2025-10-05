@@ -1,2 +1,12 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<% @posts.each do |post| %>
+  <div>
+    <p>タイトル：<%= post.title %></p>
+    <p>本文：<%= post.body %></p>
+    <% @post.images.each do |image| %>
+      <%= image_tag image, size: "200x200" %> <br>
+    <% end %>
+    <p>ユーザーネーム：<%= post.user.name %></p>
+    <%= image_tag post.user.get_profile_image %>
+  </div>
+
+<% end %>

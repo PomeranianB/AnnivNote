@@ -13,6 +13,9 @@
 
   <body>
   <header>
+    <li>
+      <%= link_to "トップページ", root_path %>
+    </li>
     <% if user_signed_in? %>
       <li>
         <%= link_to "マイページ", mypage_path %>
@@ -24,9 +27,6 @@
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
-      <li>
-        <%= link_to "トップページ", root_path %>
-      </li>
       <li>
         <%= link_to "アバウト", about_path %>
       </li>
