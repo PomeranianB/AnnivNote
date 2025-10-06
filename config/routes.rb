@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get "/about" => "homes#about", as: 'about'
   get "/users/mypage" => "users#mypage", as: 'mypage'
+  patch 'post/:id' => 'posts#update', as: 'update_post'
   resources :posts, only: [:new, :create, :show, :edit, :index, :destroy]
   resources :users, only: [:show, :edit]
   resources :user_images, only: [:new, :create, :mypage, :destroy]

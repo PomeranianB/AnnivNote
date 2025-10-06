@@ -2,11 +2,10 @@
   <div>
   <%= link_to post_path(post.id) do %>
   <p>タイトル：<%= post.title %></p>
-  <% end %>
-  
+  <% end %>  
     <p>本文：<%= post.body %></p>
     <% @post.images.each do |image| %>
-      <%= image_tag image, size: "200x200" %> <br>
+      <%= image_tag post.get_post_image, size: "200x200" %> <br>
     <% end %>
     <p>ユーザーネーム：<%= post.user.name %></p>
     <%= image_tag post.user.get_profile_image %>

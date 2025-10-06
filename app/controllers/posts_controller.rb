@@ -27,6 +27,21 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
+    if @post.user == current_user
+        render "edit"
+    else
+        redirect_to posts_path
+    end
+  end
+    
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params) 
+      redirect_to :post, notice: "ユーザーが更新されました。"
+    else
+      render :edit # バリデーションエラーの場合、editビューを表示する
+    end
   end
 
   def destroy
