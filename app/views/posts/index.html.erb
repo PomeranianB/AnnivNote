@@ -1,12 +1,13 @@
+<h2>投稿一覧</h2>
+
 <% @posts.each do |post| %>
   <div>
   <%= link_to post_path(post.id) do %>
   <p>タイトル：<%= post.title %></p>
   <% end %>  
     <p>本文：<%= post.body %></p>
-    <% @post.images.each do |image| %>
-      <%= image_tag post.get_post_image, size: "200x200" %> <br>
-    <% end %>
+
+<br>
     <p>ユーザーネーム：<%= post.user.name %></p>
     <%= image_tag post.user.get_profile_image %>
   </div>

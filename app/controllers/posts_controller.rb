@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params) 
-      redirect_to :post, notice: "ユーザーが更新されました。"
+      redirect_to :post, notice: "更新されました"
     else
       render :edit # バリデーションエラーの場合、editビューを表示する
     end
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
 private
 
   def post_params
-    params.require(:post).permit(:title, :body, :images)
+    params.require(:post).permit(:title, :body, post_images: [])
   end
 
 end
