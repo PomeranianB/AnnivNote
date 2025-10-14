@@ -26,10 +26,14 @@ class UsersController < ApplicationController
      end
   end
 
-  def withdraw_user
+  def unsubscribe
+    @user = User.find_by(params[:id])
+  end
+
+  def withdraw
 		@user = User.find(params[:id])
 		#is_deletedカラムにフラグを立てる(defaultはfalse)
-    	@user.update(is_valid: true)
+    	@user.update(is_valid: false)
     	#ログアウトさせる
     	reset_session
     	flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"

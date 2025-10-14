@@ -2,15 +2,15 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  get 'unsubscribe/:id' => 'homes#unsubscribe', as: 'confirm_unsubscribe'
-  patch ':id/withdraw/:id' => 'homes#withdraw', as: 'withdraw_user'
+  get '/users/unsubscribe' => 'users#unsubscribe', as: 'confirm_unsubscribe'
+  patch ':id/withdraw/:id' => 'users#withdraw', as: 'withdraw_user'
   put "/users/:id/withdraw" => "users#withdraw", as: 'users_withdraw'
   root to: "homes#top"
   get "/about" => "homes#about", as: 'about'
   get "/users/mypage" => "users#mypage", as: 'mypage'
   patch 'post/:id' => 'posts#update', as: 'update_post'
   resources :posts, only: [:new, :create, :show, :edit, :index, :destroy]
-  resources :users, only: [:show, :edit, :update, :edit]
+  resources :users, only: [:show, :edit, :update]
   resources :user_images, only: [:new, :create, :mypage, :destroy]
   resources :post_images, only: [:new, :create, :index, :show, :destroy]
 end
