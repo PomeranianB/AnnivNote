@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get '/users/unsubscribe' => 'users#unsubscribe', as: 'confirm_unsubscribe'
-  patch ':id/withdraw/:id' => 'users#withdraw', as: 'withdraw_user'
+  patch '/users/withdraw' => 'users#withdraw', as: 'withdraw_user'
   put "/users/:id/withdraw" => "users#withdraw", as: 'users_withdraw'
   root to: "homes#top"
   get "/about" => "homes#about", as: 'about'

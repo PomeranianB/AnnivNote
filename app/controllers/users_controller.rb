@@ -31,13 +31,13 @@ class UsersController < ApplicationController
   end
 
   def withdraw
-		@user = User.find(params[:id])
-		#is_deletedカラムにフラグを立てる(defaultはfalse)
+		@user = User.find(current_user.id)
+		#is_deletedカラムにフラグを立てる(defaultはtrue)
     	@user.update(is_valid: false)
     	#ログアウトさせる
     	reset_session
     	flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
-    	redirect_to root_path
+    	redirect_to new_user_registration_path
 	end
 
   private
