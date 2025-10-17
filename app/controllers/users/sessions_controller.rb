@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  before_action :reject_user, only: [:create]
+  before_action :reject_inactive_user, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -21,10 +21,10 @@ class Users::SessionsController < Devise::SessionsController
 
   protected
 
-  def reject_user
+  def reject_inactive_user
     @user = User.find_by(email: params[:user][:email])
     if @user
-      if @user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == true)
+      if @user.valid_password?(params[:user][:password]) && !@user.is_valid
         flash[:notice] = "退会済みです。再度ご登録をしてご利用ください"
         redirect_to new_user_session_path
       else

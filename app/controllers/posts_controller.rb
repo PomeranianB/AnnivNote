@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page])
     @post = Post.new
     @user = User.find(current_user.id)
   end
