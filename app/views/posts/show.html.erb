@@ -3,26 +3,28 @@
     <table class="table">
       <tbody>
         <tr>
-              <td>
-                <%= link_to post_path(@post) do %>
-                  <%= @post.title %>
-                <% end %>
-              </td>
-              <td>
-                <%= @post.body %>
-              </td>
-              <% @post.post_images.each do |image| %>
-                <%= image_tag image, size: "200x200" %> <br>
-              <% end %>
-              <% if @post.user == current_user %>
-              <td>
-                <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success" %>
-              </td>
-              <td>
-                <%= link_to '削除', post_path(@post), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
-              </td>
-              <% end %>
-              <td>
+          <td>
+            <%= link_to post_path(@post) do %>
+              <%= @post.title %>
+            <% end %>
+          </td>
+          <td>
+            <%= @post.body %>
+          </td>
+          <td>
+            <% @post.post_images.each do |image| %>
+            <%= image_tag image, size: "200x200" %> <br>
+            <% end %>
+          </td>
+        <% if @post.user == current_user %>
+          <td>
+            <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success" %>
+          </td>
+          <td>
+            <%= link_to '削除', post_path(@post), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
+          </td>
+         <% end %>
+            <td>
               <%= link_to user_path(@user) do %>
                 <%= image_tag @user.get_profile_image %><br>
                 <%= @user.name %>
