@@ -10,79 +10,80 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="d-flex flex-column vh-100">
-  <header>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #B6D6EB;">      
-  <div class="container-fluid" >
-  <a class="navbar-brand p-3" href="/" >Anniv.Note</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-          <% if user_signed_in? %>
-              <li class="nav-item">
-                <%= link_to mypage_path do %>
-                  <i class="fa-light fa-face-smile">マイページ</i>
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to user_path(current_user.id) do %>
-                  <i class="fa-solid fa-book-quran">マイ投稿一覧</i>
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to posts_path do %>
-                  <i class="fa-solid fa-book-atlas">投稿一覧</i>
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to new_post_path do %>
-                  <i class="fa-duotone fa-light fa-pen-to-square">新規投稿</i>
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to destroy_user_session_path , method: :delete do %>
-                  <i class="fa-solid fa-right-from-bracket">ログアウト</i>
-                <% end %>
-              </li>
-                              
-            <% else %>
-              <li class="nav-item">
-                <%= link_to root_path do %>
-                  <i class="fa-solid fa-hat-wizard">トップページ</i>
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to about_path do %>
-                  <i class="fas fa-link">About</i>
-                <% end %>  
-              </li>
-              <li class="nav-item">
-                <%= link_to posts_path do %>
-                  <i class="fa-solid fa-book-atlas">投稿一覧</i>
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to new_user_registration_path do %>
-                  <i class="fa-solid fa-baby">ユーザー登録</i>
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to new_user_session_path do %>
-                  <i class="fa-solid fa-right-to-bracket">ログイン</i>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-        </div>
-      </nav>
-    </header>
+<body class="d-flex flex-column vh-100">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #B6D6EB;">      
+<div class="container-fluid" >
+<h1><a class="navbar-brand" href="/" style="color: #00489d;">Anniv.Note</a></h1>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <% if user_signed_in? %>
+            <li class="nav-item p-4">
+              <%= link_to mypage_path do %>
+                <i class="fa-solid fa-face-smile">  マイページ</i>
+              <% end %>
+            </li>
+            <li class="nav-item p-4">
+              <%= link_to user_path(current_user.id) do %>
+                <i class="fa-solid fa-book-quran">  マイ投稿一覧</i>
+              <% end %>
+            </li>
+            <li class="nav-item p-4">
+              <%= link_to posts_path do %>
+                <i class="fa-solid fa-book-atlas">  投稿一覧</i>
+              <% end %>
+            </li>
+            <li class="nav-item p-4">
+              <%= link_to new_post_path do %>
+                <i class="fa-solid fa-pen-to-square">  新規投稿</i>
+              <% end %>
+            </li>
+            <li class="nav-item p-4">
+              <%= link_to destroy_user_session_path , method: :delete do %>
+                <i class="fa-solid fa-right-from-bracket">  ログアウト</i>
+              <% end %>
+            </li>
+                            
+          <% else %>
+            <li class="nav-item p-4">
+              <%= link_to root_path do %>
+                <i class="fa-solid fa-hat-wizard">  トップページ</i>
+              <% end %>
+            </li>
+            <li class="nav-item p-4">
+              <%= link_to about_path do %>
+                <i class="fas fa-link">  About</i>
+              <% end %>  
+            </li>
+            <li class="nav-item p-4">
+              <%= link_to posts_path do %>
+                <i class="fa-solid fa-book-atlas">  投稿一覧</i>
+              <% end %>
+            </li>
+            <li class="nav-item p-4">
+              <%= link_to new_user_registration_path do %>
+                <i class="fa-solid fa-baby">  ユーザー登録</i>
+              <% end %>
+            </li>
+            <li class="nav-item p-4">
+              <%= link_to new_user_session_path do %>
+                <i class="fa-solid fa-right-to-bracket">  ログイン</i>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      </div>
+    </nav>
+  </header>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
-  <%= yield %>
-  </body>
+<%= yield %>
+</body>
+
 </html>
