@@ -1,8 +1,15 @@
-<main>
+<head>
+<%= stylesheet_link_tag 'posts', media: 'all' %>
+</head>
+
+<body>
+</body>
+<main style="background-color: #fff6d7">
 <div class="base-container">
-<div class="texts-wrapper">
+<div class="texts-wrapper mt-8">
   <div class="contents-title text-center">
-    <h2>投稿一覧</h2>
+    <h2 style="color: #6C5423;"><i class="fa-solid fa-cake-candles"></i>　みんなの記念日</h2>
+    </div>
     <br>
     <div class="container">
     <div class="row justify-content-center">
@@ -10,7 +17,7 @@
 
 <% @posts.each do |post| %>
   <div class="col-12 col-md-6 col-lg-4">
-  <div class="card m-5 text-white border-0" style="width: 18rem;">
+  <div class="card m-2 text-white border-2" style="width: 18rem;">
   <div class="mx-auto">
   <%=link_to(post_path(post.id), class: "text-dark") do %>
     <% if post.post_images.attached? %>
@@ -18,7 +25,7 @@
        <%= image_tag post.post_images, size: "200x200" %>
       <% end %>
     <% else %>
-      <%= image_tag 'no_image', size: "200x200" %>
+      <%= image_tag 'NO-IMAGE', size: "200x200" %>
     <% end %>
   <% end %>
     </div>

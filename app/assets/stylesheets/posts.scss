@@ -8,8 +8,8 @@
 }
 
 main {
-  width: 880px;
-  margin: 0 auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .post-wrap {
@@ -25,4 +25,8 @@ main {
 
 .post-content {
   width: 200px;
+}
+
+.pagination {
+  justify-content: center;
 }

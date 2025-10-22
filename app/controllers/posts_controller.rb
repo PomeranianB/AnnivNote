@@ -24,7 +24,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = @post.user
     @new_post = Post.new
-
   end
 
   def edit

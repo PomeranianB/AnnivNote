@@ -1,1 +1,17 @@
-show
+<head>
+<%= stylesheet_link_tag 'users', media: 'all' %>
+</head>
+
+<main>
+<% @posts.each do |post| %>
+  <div>
+    <% @post.post_images.each do |image| %>
+      <%= image_tag image, size: "200x200" %> <br>
+    <% end %> 
+    <%= link_to post_path(post.id) do %> 
+      <p>タイトル：<%= post.title %></p>
+    <% end %>
+    <p>本文：<%= post.body %></p>
+  </div>
+  <% end %>
+  </main>

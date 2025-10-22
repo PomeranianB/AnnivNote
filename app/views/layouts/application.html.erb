@@ -40,7 +40,7 @@
                 </li>
                 <li class="nav-item p-4">
                   <%= link_to posts_path do %>
-                    <i class="fa-solid fa-book-atlas">  みんなの記念日</i>
+                    <i class="fa-solid fa-cake-candles">  みんなの記念日</i>
                   <% end %>
                 </li>
                 <li class="nav-item p-4">
@@ -62,12 +62,12 @@
             </li>
             <li class="nav-item p-4">
               <%= link_to posts_path do %>
-                <i class="fa-solid fa-book-atlas">  みんなの記念日</i>
+                <i class="fa-solid fa-cake-candles">  みんなの記念日</i>
               <% end %>
             </li>
             <li class="nav-item p-4">
             <%= link_to new_user_registration_path do %>
-              <i class="fa-solid fa-baby">  ユーザー登録</i>
+              <i class="fas fa-user">  ユーザー登録</i>
             <% end %>
             </li>
             <li class="nav-item p-4">
@@ -86,13 +86,9 @@
   <p class="alert"><%= alert %></p>
 
 <%= yield %>
-<main>
-</main>
 
-<div class="fixed-bottom m-1">
-<a class="btn" href="#top" role="button"><i class="fa-regular fa-circle-up"></i>ページ上に戻る</a>
+<div class="fixed-bottom text-right" style="background-color: #ECD5B6">
+<a class="btn" href="#top" role="button" style="color: #423210"><i class="fa-regular fa-circle-up"></i>ページ上に戻る</a>
 </div>
-  
- <footer></footer> 
  </body>
 </html>

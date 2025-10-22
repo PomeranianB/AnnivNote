@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
   
   def show
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     @posts = @user.posts
     @post = Post.new
   end
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "アップデートが完了しました"
-      redirect_to user_path(@user)
+      redirect_to mypage_path(current_user.id)
     else
       render :edit
      end
