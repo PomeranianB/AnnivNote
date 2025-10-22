@@ -10,7 +10,7 @@
 
 <% @posts.each do |post| %>
   <div class="col-12 col-md-6 col-lg-4">
-  <div class="card m-5" style="width: 18rem;">
+  <div class="card m-5 text-white border-0" style="width: 18rem;">
   <div class="mx-auto">
   <%=link_to(post_path(post.id), class: "text-dark") do %>
     <% if post.post_images.attached? %>
@@ -37,7 +37,7 @@
         <strong><span> <%= post.title %></span></strong>
       <% end %>
        </p>
-          <p class="card-text text-left"><%= post.body %></p>
+          <p class="card-text text-left"  style="color: #6C5423;"><%= post.body %></p>
         <%=link_to(user_path(post.user_id)) do %>
           <span><i class="fas fa-user"></i> By <%= post.user.name %></span>
         <% end %>

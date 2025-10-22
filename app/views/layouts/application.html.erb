@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <meta charset="UTF-8" />
     <title>AnnivNote</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,41 +12,42 @@
   </head>
 
 <body class="d-flex flex-column vh-100">
-<header class="sticky-top">
-<nav class="navbar navbar-expand-lg nav-light" style="background-color: #ECD5B6">      
-<div class="container-fluid" >
-<h1><strong><a class="navbar-brand" href="/" style="color: #6C5423;">Anniv.Note</a></strong></h1>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
-            <li class="nav-item p-4">
-              <%= link_to mypage_path do %>
-                <i class="fa-solid fa-face-smile">  マイページ</i>
-              <% end %>
-            </li>
-            <li class="nav-item p-4">
-              <%= link_to user_path(current_user.id) do %>
-                <i class="fa-solid fa-book-quran">  私の記録</i>
-              <% end %>
-            </li>
-            </li>
-            <li class="nav-item p-4">
-              <%= link_to new_post_path do %>
-                <i class="fa-solid fa-pen-to-square">  記念日を記録する</i>
-              <% end %>
-            </li>
-            <li class="nav-item p-4">
-            <%= link_to posts_path do %>
-              <i class="fa-solid fa-book-atlas">  みんなの記念日</i>
-            <% end %>
-            <li class="nav-item p-4">
-              <%= link_to destroy_user_session_path , method: :delete do %>
-                <i class="fa-solid fa-right-from-bracket">  ログアウト</i>
-              <% end %>
-            </li>
+  <header>
+    <nav class="fixed-top navbar navbar-expand-lg navbar-light" style="background-color: #ECD5B6"> 
+      <div class="container-fluid" >
+        <a class="navbar-brand" href="/"><strong><h1 style="color: #6C5423;">Anniv.Note</h1></strong></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <% if user_signed_in? %>
+                <li class="nav-item p-4">
+                  <%= link_to mypage_path do %>
+                    <i class="fa-solid fa-face-smile">  マイページ</i>
+                  <% end %>
+                </li>
+                <li class="nav-item p-4">
+                  <%= link_to user_path(current_user.id) do %>
+                    <i class="fa-solid fa-book-quran">  私の記録</i>
+                  <% end %>
+                </li>
+                </li>
+                <li class="nav-item p-4">
+                  <%= link_to new_post_path do %>
+                    <i class="fa-solid fa-pen-to-square">  記念日を記録する</i>
+                  <% end %>
+                </li>
+                <li class="nav-item p-4">
+                  <%= link_to posts_path do %>
+                    <i class="fa-solid fa-book-atlas">  みんなの記念日</i>
+                  <% end %>
+                </li>
+                <li class="nav-item p-4">
+                  <%= link_to destroy_user_session_path , method: :delete do %>
+                    <i class="fa-solid fa-right-from-bracket">  ログアウト</i>
+                  <% end %>
+                </li>
                             
           <% else %>
             <li class="nav-item p-4">
@@ -63,7 +65,6 @@
                 <i class="fa-solid fa-book-atlas">  みんなの記念日</i>
               <% end %>
             </li>
-            </li>
             <li class="nav-item p-4">
             <%= link_to new_user_registration_path do %>
               <i class="fa-solid fa-baby">  ユーザー登録</i>
@@ -75,8 +76,8 @@
               <% end %>
             </li>
             <% end %>
-        </ul>
-      </div>
+          </ul>
+        </div>
       </div>
     </nav>
   </header>
@@ -85,6 +86,13 @@
   <p class="alert"><%= alert %></p>
 
 <%= yield %>
-</body>
+<main>
+</main>
 
+<div class="fixed-bottom m-1">
+<a class="btn" href="#top" role="button"><i class="fa-regular fa-circle-up"></i>ページ上に戻る</a>
+</div>
+  
+ <footer></footer> 
+ </body>
 </html>
