@@ -11,10 +11,10 @@
   </head>
 
 <body class="d-flex flex-column vh-100">
-<header>
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #B6D6EB;">      
+<header class="sticky-top">
+<nav class="navbar navbar-expand-lg nav-light" style="background-color: #ECD5B6">      
 <div class="container-fluid" >
-<h1><a class="navbar-brand" href="/" style="color: #00489d;">Anniv.Note</a></h1>
+<h1><strong><a class="navbar-brand" href="/" style="color: #6C5423;">Anniv.Note</a></strong></h1>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -28,19 +28,19 @@
             </li>
             <li class="nav-item p-4">
               <%= link_to user_path(current_user.id) do %>
-                <i class="fa-solid fa-book-quran">  マイ投稿一覧</i>
+                <i class="fa-solid fa-book-quran">  私の記録</i>
               <% end %>
             </li>
-            <li class="nav-item p-4">
-              <%= link_to posts_path do %>
-                <i class="fa-solid fa-book-atlas">  投稿一覧</i>
-              <% end %>
             </li>
             <li class="nav-item p-4">
               <%= link_to new_post_path do %>
-                <i class="fa-solid fa-pen-to-square">  新規投稿</i>
+                <i class="fa-solid fa-pen-to-square">  記念日を記録する</i>
               <% end %>
             </li>
+            <li class="nav-item p-4">
+            <%= link_to posts_path do %>
+              <i class="fa-solid fa-book-atlas">  みんなの記念日</i>
+            <% end %>
             <li class="nav-item p-4">
               <%= link_to destroy_user_session_path , method: :delete do %>
                 <i class="fa-solid fa-right-from-bracket">  ログアウト</i>
@@ -50,30 +50,31 @@
           <% else %>
             <li class="nav-item p-4">
               <%= link_to root_path do %>
-                <i class="fa-solid fa-hat-wizard">  トップページ</i>
+                <i class="fa-solid fa-hat-wizard">  トップ</i>
               <% end %>
             </li>
             <li class="nav-item p-4">
               <%= link_to about_path do %>
-                <i class="fas fa-link">  About</i>
+                <i class="fas fa-link">  このサイトについて</i>
               <% end %>  
             </li>
             <li class="nav-item p-4">
               <%= link_to posts_path do %>
-                <i class="fa-solid fa-book-atlas">  投稿一覧</i>
+                <i class="fa-solid fa-book-atlas">  みんなの記念日</i>
               <% end %>
             </li>
+            </li>
             <li class="nav-item p-4">
-              <%= link_to new_user_registration_path do %>
-                <i class="fa-solid fa-baby">  ユーザー登録</i>
-              <% end %>
+            <%= link_to new_user_registration_path do %>
+              <i class="fa-solid fa-baby">  ユーザー登録</i>
+            <% end %>
             </li>
             <li class="nav-item p-4">
               <%= link_to new_user_session_path do %>
                 <i class="fa-solid fa-right-to-bracket">  ログイン</i>
               <% end %>
             </li>
-          <% end %>
+            <% end %>
         </ul>
       </div>
       </div>
