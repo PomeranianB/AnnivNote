@@ -3,9 +3,9 @@
 </head>
 
 <main style="background-color: #fff6d7 ">
-<div class="container d-flex flex-row vh-100">
+<div class="container vh-100">
   <div class="row">
-    <div class="col-3">
+    <div class="col-sm-3">
     <div class="sidebar_fixed text-center">
       <h4 style="color: #6C5423;"><%= @user.name %></h4>
         <%= image_tag @user.get_profile_image %>
@@ -21,13 +21,13 @@
       </div>
     </div>
 
-    <div class="col-9">
+    <div class="col-sm-9 col-sm-offset-3">
     <table class="table">
         <thead>
         <tr>
-        <th scope="col">イメージ</th>
-        <th scope="col">イベント名</th>
-        <th scope="col">内容</th>
+        <th scope="col" style="text-align: center;">イメージ</th>
+        <th scope="col" style="text-align: center;">イベント名</th>
+        <th scope="col style="text-align: center;"">内容</th>
         <th scope="col">投稿日時</th>
         <th scope="col"></th>
         <th scope="col"></th>
@@ -38,7 +38,7 @@
       <tr>
       <td>
       <%=link_to(post_path(post.id)) do %>
-        <%= image_tag post.images.get_images, size: "200x200" %>
+        <%= image_tag post.get_post_image %>
       <% end %>
       </td>
         <td>

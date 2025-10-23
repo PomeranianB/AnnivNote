@@ -17,9 +17,7 @@
             <%= @post.body %>
           </td>
           <td>
-            <% @post.post_images.each do |image| %>
-            <%= image_tag image, size: "200x200" %> <br>
-            <% end %>
+            <%= image_tag  @post.get_post_image, size: "200x200" %> <br>
           </td>
         <% if @post.user == current_user %>
           <td>

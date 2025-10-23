@@ -5,53 +5,49 @@
 <body>
 </body>
 <main style="background-color: #fff6d7">
-<div class="base-container">
-<div class="texts-wrapper mt-8">
-  <div class="contents-title text-center">
-    <h2 style="color: #6C5423;"><i class="fa-solid fa-cake-candles"></i>　みんなの記念日</h2>
-    </div>
-    <br>
-    <div class="container">
-    <div class="row justify-content-center">
-    <div class="card-deck">
-
-<% @posts.each do |post| %>
-  <div class="col-12 col-md-6 col-lg-4">
-  <div class="card m-2 text-white border-2" style="width: 18rem;">
-  <div class="mx-auto">
-  <%=link_to(post_path(post.id), class: "text-dark") do %>
-    <% if post.post_images.attached? %>
-      <% @post.post_images.each do |image| %>
-       <%= image_tag post.post_images, size: "200x200" %>
-      <% end %>
-    <% else %>
-      <%= image_tag 'NO-IMAGE', size: "200x200" %>
-    <% end %>
-  <% end %>
-    </div>
-    <div class="card-body d-flex align-items-center">
-    <div class="row">
-      <div class="col-2">
-      <%=link_to(user_path(post.user_id)) do %>
-        <%= image_tag post.user.get_profile_image, size: "50x50", class: "mt-3 rounded-circle"; %>
-      <% end %>
-        </div>
-      <div class="col-1">
+  <div class="base-container">
+    <div class="texts-wrapper mt-8">
+      <div class="contents-title text-center">
+        <h2 style="color: #6C5423;"><i class="fa-solid fa-cake-candles"></i>　みんなの記念日</h2>
       </div>
-      <div class="col-8">
-      <p class="card-title text-left">
-      <%=link_to(post_path(post.id), class: "text-dark") do %>
-        <strong><span> <%= post.title %></span></strong>
-      <% end %>
-       </p>
-          <p class="card-text text-left"  style="color: #6C5423;"><%= post.body %></p>
-        <%=link_to(user_path(post.user_id)) do %>
-          <span><i class="fas fa-user"></i> By <%= post.user.name %></span>
-        <% end %>
-          </div>
-          </div>
-          </div>
-        </div>
+      <br>
+      <div class="container">
+        <div class="row justify-content-center">
+        <div class="card-deck">
+            <% @posts.each do |post| %>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card w-100 mt-6 shadow-lg">
+                  <div class="mx-auto">
+                    <%=link_to(post_path(post.id), class: "text-dark") do %>
+                      <%= image_tag post.get_post_image, class: "card-img-top"; %>
+                    <% end %>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-3">
+                        <%=link_to(user_path(post.user_id)) do %>
+                          <%= image_tag post.user.get_profile_image, size: "60x60", class: "mt-3 rounded-circle"; %>
+                        <% end %>
+                        </div>
+                      <div class="col-9 col-offset-4">
+                        <p class="card-title text-left">
+                          <%=link_to(post_path(post.id)) do %>
+                            <strong><span style="color: #a17e38;"><i class="fa-solid fa-thumbtack"></i><%= post.title %></span></strong>
+                          <% end %>
+                        </p>
+                        <p class="card-text text-left" style="color: #82652a;"><%= post.body %></p>
+                        <p class="card-username text-right">
+                          <%=link_to(user_path(post.user_id)) do %>
+                            <span style="color: #e0a019;"><i class="fas fa-user"></i> By <%= post.user.name %></span>
+                          <% end %>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                <div class="card-footer">
+                </div>
+                  </div>
+              
         </div>
           <% end %>
 </div>

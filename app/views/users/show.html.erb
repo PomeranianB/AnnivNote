@@ -3,15 +3,49 @@
 </head>
 
 <main>
-<% @posts.each do |post| %>
-  <div>
-    <% @post.post_images.each do |image| %>
-      <%= image_tag image, size: "200x200" %> <br>
-    <% end %> 
-    <%= link_to post_path(post.id) do %> 
-      <p>タイトル：<%= post.title %></p>
-    <% end %>
-    <p>本文：<%= post.body %></p>
-  </div>
-  <% end %>
-  </main>
+  <table class="table">
+        <thead>
+        <tr>
+        <th scope="col" style="text-align: center;">イメージ</th>
+        <th scope="col" style="text-align: center;">イベント名</th>
+        <th scope="col style="text-align: center;"">内容</th>
+        <th scope="col">投稿日時</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        </tr>
+        </thead>
+      <tbody>
+      <% @posts.each do |post| %>     
+      <tr>
+      <td>
+      <%=link_to(post_path(post.id)) do %>
+        <%= image_tag post.get_post_image %>
+      <% end %>
+      </td>
+        <td>
+        <%= link_to post_path(post.id) do %>
+            <%= post.title %>
+        <% end %>
+        </td>
+        <td>
+          <div class = "show-post-body">
+           <%= post.body %>
+          </div>
+        </td>
+        <td>
+        <%= post.created_at.strftime('%Y/%m/%d') %>
+       </td>
+      <% if @post.user == current_user %>
+        <td>
+          <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success" %>
+        </td>
+        <td>
+          <%= link_to '削除', post_path(@post), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
+        </td>
+       <% end %>
+
+          </tr>
+        </tbody>
+       <% end %>
+        </table>
+  
