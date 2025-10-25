@@ -12,11 +12,20 @@
   background-repeat: no-repeat;
 }
 
-.toumei{
-  background:linear-gradient(to left, rgba(255, 255, 255, 0.678) 0%,rgba(0, 0, 0, 0.822) 100%);
+.cover{
+  background:linear-gradient(to right, rgba(255, 255, 255, 0.678) 0%, rgba(255, 255, 255, 0.1) 100%); 
 }
 
 .my-custom-button {
   background-color: #6C5423;
   color: #E1C178;
+  }
+
+  h2 {
+    font-family: "Metamorphous", serif;
+  }
+  
+  
+  h4, h5, p {
+    font-family: "Sawarabi Gothic", sans-serif;
   }

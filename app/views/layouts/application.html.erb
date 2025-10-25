@@ -9,6 +9,8 @@
     <script src="https://kit.fontawesome.com/ffdbf495c1.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One&family=Kosugi&family=Metamorphous&family=Pacifico&family=Sawarabi+Gothic&display=swap" rel="stylesheet">    
   </head>
 
 <body class="d-flex flex-column vh-100">
@@ -24,55 +26,55 @@
               <% if user_signed_in? %>
                 <li class="nav-item p-4">
                   <%= link_to mypage_path do %>
-                    <i class="fa-solid fa-face-smile">  マイページ</i>
+                    <i class="fa-solid fa-face-smile" style="color: #423210;">  マイページ</i>
                   <% end %>
                 </li>
                 <li class="nav-item p-4">
                   <%= link_to user_path(current_user.id) do %>
-                    <i class="fa-solid fa-book-quran">  私の記録</i>
+                    <i class="fa-solid fa-book-quran" style="color: #423210;">  私の記録</i>
                   <% end %>
                 </li>
                 </li>
                 <li class="nav-item p-4">
                   <%= link_to new_post_path do %>
-                    <i class="fa-solid fa-pen-to-square">  記念日を記録する</i>
+                    <i class="fa-solid fa-pen-to-square" style="color: #423210;">  記念日を記録する</i>
                   <% end %>
                 </li>
                 <li class="nav-item p-4">
                   <%= link_to posts_path do %>
-                    <i class="fa-solid fa-cake-candles">  みんなの記念日</i>
+                    <i class="fa-solid fa-cake-candles" style="color: #423210;">  みんなの記念日</i>
                   <% end %>
                 </li>
                 <li class="nav-item p-4">
                   <%= link_to destroy_user_session_path , method: :delete do %>
-                    <i class="fa-solid fa-right-from-bracket">  ログアウト</i>
+                    <i class="fa-solid fa-right-from-bracket" style="color: #423210;">  ログアウト</i>
                   <% end %>
                 </li>
                             
           <% else %>
             <li class="nav-item p-4">
               <%= link_to root_path do %>
-                <i class="fa-solid fa-hat-wizard">  トップ</i>
+                <i class="fa-solid fa-hat-wizard" style="color: #423210;">  トップ</i>
               <% end %>
             </li>
             <li class="nav-item p-4">
               <%= link_to about_path do %>
-                <i class="fas fa-link">  このサイトについて</i>
+                <i class="fas fa-link" style="color: #423210;">  このサイトについて</i>
               <% end %>  
             </li>
             <li class="nav-item p-4">
-              <%= link_to posts_path do %>
-                <i class="fa-solid fa-cake-candles">  みんなの記念日</i>
+              <%= link_to posts_path style="color: #423210;" do %>
+                <i class="fa-solid fa-cake-candles" style="color: #423210;">  みんなの記念日</i>
               <% end %>
             </li>
             <li class="nav-item p-4">
             <%= link_to new_user_registration_path do %>
-              <i class="fas fa-user">  ユーザー登録</i>
+              <i class="fas fa-user" style="color: #423210;">  ユーザー登録</i>
             <% end %>
             </li>
             <li class="nav-item p-4">
               <%= link_to new_user_session_path do %>
-                <i class="fa-solid fa-right-to-bracket">  ログイン</i>
+                <i class="fa-solid fa-right-to-bracket" style="color: #423210;">  ログイン</i>
               <% end %>
             </li>
             <% end %>
