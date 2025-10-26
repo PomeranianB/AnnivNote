@@ -17,55 +17,40 @@
       <br>
       <br>
       <% if user_signed_in? && @user == current_user %>
-        <p style="color: #6C5423;"><%= link_to "退会", confirm_unsubscribe_path(@current_user) %></p>
+        <%= link_to "退会", confirm_unsubscribe_path(@current_user), class: "my-custum-link" %>
       <% end %>
       </div>
     </div>
 
     <div class="col-sm-9 col-sm-offset-3">
-    <table class="table">
-        <thead>
-        <tr>
-        <th scope="col" style="text-align: center;">イメージ</th>
-        <th scope="col" style="text-align: center;">イベント名</th>
-        <th scope="col style="text-align: center;"">内容</th>
-        <th scope="col">投稿日時</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        </tr>
-        </thead>
-      <tbody>
-      <% @posts.each do |post| %>     
-      <tr>
-      <td>
-      <%=link_to(post_path(post.id)) do %>
-        <%= image_tag post.get_post_image %>
-      <% end %>
-      </td>
-        <td>
-        <%= link_to post_path(post.id) do %>
-            <%= post.title %>
-        <% end %>
-        </td>
-        <td>
-           <%= post.body %>
-        </td>
-        <td>
-        <%= post.created_at.strftime('%Y/%m/%d') %>
-       </td>
-      <% if @post.user == current_user %>
-        <td>
-          <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success" %>
-        </td>
-        <td>
-          <%= link_to '削除', post_path(@post), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
-        </td>
-       <% end %>
+    <div class="card-deck">
+            <% @posts.each do |post| %>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 w-100 mt-6 shadow-lg">
+                <div class="card-header text-center" style="color: #e0a019; background-color=white;">
+                <i class="fa-solid fa-thumbtack"></i>
+                </div>
 
-          </tr>
-        </tbody>
-       <% end %>
-        </table>
+                  <div class="mx-auto mt-2">
+                    <%=link_to(post_path(post.id), class: "text-dark") do %>
+                      <%= image_tag post.get_post_image, size: "200x200", class: "card-img-top"; %>
+                    <% end %>
+                  </div>
+                  <div class="card-body">
+                        <p class="card-title text-left">
+                          <%=link_to(post_path(post.id)) do %>
+                            <strong><span style="color: #a17e38;"><i class="fa-solid fa-thumbtack"></i><%= post.title %></span></strong>
+                          <% end %>
+                        </p>
+                        <p class="card-text text-left" style="color: #82652a;"><%= post.body %></p>
+                  </div>
+                <div class="card-footer">
+                </div>
+                  </div>
+              
+        </div>
+          <% end %>
+</div>
       </div>
     </div>
   </div>

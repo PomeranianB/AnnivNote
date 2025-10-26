@@ -35,6 +35,12 @@ main {
   justify-content: center;
 }
 
+.card-deck {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 1.5rem; 
+}
+
 .card-text {
   display: -webkit-box;
   -webkit-box-orient: vertical;

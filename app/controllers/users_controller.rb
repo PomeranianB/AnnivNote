@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.page(params[:page]).per(3)
     @post = Post.new
   end
 
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def mypage
     @user = User.find(current_user.id)
-    @posts = @user.posts.page(params[:page])
+    @posts = @user.posts.order(created_at: :desc).limit(3)
     @post = Post.new
   end
 

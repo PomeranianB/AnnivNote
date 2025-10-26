@@ -22,10 +22,22 @@ main {
   background-color: #6C5423;
   color: #E1C178;
   }
+.my-custum-link {
+  color: #E1C178;
+}
 
   .show-post-body {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
+    color:#6C5423;
+    text-align: left;
   }
+
+.table {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  color:#6C5423;
+}

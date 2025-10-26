@@ -5,14 +5,12 @@
 
 <main>
   <table class="table">
-        <thead>
+      <thead class="text-align: center;">
         <tr>
-        <th scope="col" style="text-align: center;">イメージ</th>
-        <th scope="col" style="text-align: center;">イベント名</th>
-        <th scope="col style="text-align: center;"">内容</th>
-        <th scope="col">投稿日時</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
+        <th scope="col" style="width: 25%">イメージ</th>
+        <th scope="col" style="width: 15%">イベント名</th>
+        <th scope="col" style="width: 50%">内容</th>
+        <th scope="col" style="width: 10%">投稿日時</th>
         </tr>
         </thead>
       <tbody>
@@ -25,7 +23,7 @@
       </td>
         <td>
         <%= link_to post_path(post.id) do %>
-            <%= post.title %>
+          <span style="color: #e0a019;"><%= post.title %></span>
         <% end %>
         </td>
         <td>
@@ -36,17 +34,10 @@
         <td>
         <%= post.created_at.strftime('%Y/%m/%d') %>
        </td>
-      <% if @post.user == current_user %>
-        <td>
-          <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success" %>
-        </td>
-        <td>
-          <%= link_to '削除', post_path(@post), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
-        </td>
-       <% end %>
-
-          </tr>
+       </tr>
         </tbody>
        <% end %>
         </table>
-  
+        
+        <%= paginate @posts %>
+        </main>
