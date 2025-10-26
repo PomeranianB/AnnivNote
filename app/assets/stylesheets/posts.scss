@@ -48,7 +48,7 @@ main {
   overflow: hidden;
 }
 
-h2, h4, h5, p {
+h2, h3, h4, h5, p {
   font-family: "Sawarabi Gothic", sans-serif;
 }
 
@@ -56,3 +56,15 @@ h2, h4, h5, p {
   background-color: #6C5423;
   color: #E1C178;
   }
+
+.container-user {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-show {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}

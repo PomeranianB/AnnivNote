@@ -4,42 +4,38 @@
 </head>
 
 <main>
-<div class="col-md-8 offset-md-1">
-  <h2>投稿詳細</h2>
-    <table class="table">
-      <tbody>
-        <tr>
-          <td>
-            <%= link_to post_path(@post) do %>
-              <%= @post.title %>
-            <% end %>
-          </td>
-          <td>
-            <%= @post.body %>
-          </td>
-          <td>
-            <%= image_tag  @post.get_post_image, size: "200x200" %> <br>
-          </td>
-        <% if @post.user == current_user %>
-          <td>
-            <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success" %>
-          </td>
-          <td>
-            <%= link_to '削除', post_path(@post), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
-          </td>
-         <% end %>
-            <td>
-              <%= link_to user_path(@user) do %>
-                <%= image_tag @user.get_profile_image %><br>
-                <%= @user.name %>
-                <% end %>
-                </td>  
-                <td>
-                  <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
-                </td>
-              
-            </tr>
-          </tbody>
-        </table>
+  <div class="container-show">
+    <div class="row, text-align: center;, mt-3, mb-3">        <h3 style="color: #806e44;"><%= @post.title %></h3>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= image_tag  @post.get_post_image, size: "200x200" %>
       </div>
-    </main>
+      <div class="col-8 col-offset-4, d-flex align-items-center">
+        <p style="color: #6C5423;"><%= @post.body %></p>
+      </div>
+    </div>
+    <div class="row, text-align: center;, mt-3, mb-3">
+    <br>
+      <% if @post.user == current_user %>
+          <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success" %>
+          <%= link_to '削除', post_path(@post), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="container-user">
+  <div class="row, mt-5, d-flex align-items-center">
+    <div class="col">
+      <%= link_to user_path(@user) do %>
+      <%= image_tag @user.get_profile_image %>
+    </div>
+    <div class="col">
+    <span style="color: #e0a019;"><%= @user.name %></span>
+      <% end %>
+    </div>
+    <div class="col" style="color: #6C5423;">
+      <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+    </div>
+    </div>
+  </div>
+</main>
