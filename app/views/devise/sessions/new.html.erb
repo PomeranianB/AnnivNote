@@ -1,29 +1,45 @@
+<head>
+<meta charset="UTF-8" />
+  <title>AnnivNote</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+  <script src="https://kit.fontawesome.com/ffdbf495c1.js" crossorigin="anonymous"></script>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'login_signin', media: 'all' %>
+  <link href="https://fonts.googleapis.com/css2?family=Klee+One&family=Kosugi&family=Metamorphous&family=Pacifico&family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+</head>
+
+<main>
 <h2>Log in</h2>
 <%= flash[:error] %>
-
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 <%= form_with model: @user, url: user_session_path do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
+<%= yield %>
 
 <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
-
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end %>
-
+  <br>
   <div class="actions">
-    <%= f.submit "Log in" %>
+  <%= f.submit "ログイン", {class: 'btn my-custom-button'} %>
   </div>
 <% end %>
-
+<div class="mt-2">
 <%= render "devise/shared/links" %>
+</div>
+</main>

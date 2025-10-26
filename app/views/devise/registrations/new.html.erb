@@ -1,10 +1,26 @@
-<h2>Sign up</h2>
+<head>
+<meta charset="UTF-8" />
+  <title>AnnivNote</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+  <script src="https://kit.fontawesome.com/ffdbf495c1.js" crossorigin="anonymous"></script>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'login_signin', media: 'all' %>
+  <link href="https://fonts.googleapis.com/css2?family=Klee+One&family=Kosugi&family=Metamorphous&family=Pacifico&family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+</head>
 
+<main>
+<h2>Sign up</h2>
+<%= flash[:error] %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
   <%= form_with model: @user, url: user_registration_path,local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :名前 %><br>
     <%= f.text_field :name %>
   </div>
 
@@ -16,7 +32,7 @@
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em><%= @minimum_password_length %> characters minimum</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
@@ -25,10 +41,13 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
+<br>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+  <%= f.submit "登録する", {class: 'btn my-custom-button'} %>
   </div>
 <% end %>
 
+<div class="mt-2">
 <%= render "devise/shared/links" %>
+</div>
+</main>

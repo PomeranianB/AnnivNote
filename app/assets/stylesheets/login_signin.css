@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.background {
+  background-color: #fff6d7;
+}
+
+main {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+h2{
+  color: #6C5423;
+  font-family: "Metamorphous", serif;
+}
+
+.field {
+  color: #6C5423;
+  font-family: "Sawarabi Gothic", sans-serif;
+}
+
+.my-custom-button {
+  background-color: #6C5423;
+  color: #E1C178;
+  }
