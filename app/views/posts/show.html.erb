@@ -1,18 +1,14 @@
-<head>
-<%= stylesheet_link_tag 'posts', media: 'all' %>
-<link href="https://fonts.googleapis.com/css2?family=Klee+One&family=Kosugi&family=Metamorphous&family=Pacifico&family=Sawarabi+Gothic&display=swap" rel="stylesheet">
-</head>
-
 <main>
   <div class="container-show">
-    <div class="row, text-align: center;, mt-3, mb-3">        <h3 style="color: #806e44;"><%= @post.title %></h3>
+    <div class="row, text-align: center;, mt-3, mb-3">
+      <h3 style="color: #a17e38;"><%= @post.title %></h3>
     </div>
     <div class="row">
-      <div class="col-3">
+      <div class="col">
         <%= image_tag  @post.get_post_image, size: "200x200" %>
       </div>
       <div class="col-8 col-offset-4, d-flex align-items-center">
-        <p style="color: #6C5423;"><%= @post.body %></p>
+        <p><%= @post.body %></p>
       </div>
     </div>
     <div class="row, text-align: center;, mt-3, mb-3">
@@ -24,18 +20,18 @@
     </div>
   </div>
   <div class="container-user">
-  <div class="row, mt-5, d-flex align-items-center">
-    <div class="col">
-      <%= link_to user_path(@user) do %>
-      <%= image_tag @user.get_profile_image %>
-    </div>
-    <div class="col">
-    <span style="color: #e0a019;"><%= @user.name %></span>
-      <% end %>
-    </div>
-    <div class="col" style="color: #6C5423;">
-      <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
-    </div>
+    <div class="row, mt-5, d-flex align-items-center">
+      <div class="col">
+        <%= link_to user_path(@user) do %>
+        <%= image_tag @user.get_profile_image %>
+      </div>
+      <div class="col">
+        <span style="color: #e0a019;"><%= @user.name %></span>
+        <% end %>
+      </div>
+      <div class="col" style="color: #6C5423;">
+        <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+      </div>
     </div>
   </div>
 </main>

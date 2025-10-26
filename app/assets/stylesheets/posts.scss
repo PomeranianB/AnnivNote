@@ -48,8 +48,14 @@ main {
   overflow: hidden;
 }
 
-h2, h3, h4, h5, p {
+ h2, h3, h4, h5, p {
   font-family: "Sawarabi Gothic", sans-serif;
+  color: #6C5423;
+}
+
+.subtitle {
+  font-family: "Sawarabi Gothic", sans-serif;
+  color: #6C5423;
 }
 
 .my-custom-button {

@@ -1,9 +1,5 @@
-<head>
-<%= stylesheet_link_tag 'posts', media: 'all' %>
-</head>
-
-
-<h1>編集画面</h1>
+<main>
+<h2>編集画面</h2>
 
 <% if @post.errors.any? %>
   <%= @post.errors.count %>件のエラーが発生しました
@@ -15,15 +11,16 @@
 <% end %>
 
 <%= form_with model: @post, url: update_post_path(@post.id), method: :patch do |f| %>
-  <h4>タイトル</h4>
+  <br>
+  <p>タイトル</p>
   <%= f.text_field :title %>
-  
-  <h4>本文</h4>
+  <br>
+  <p>本文</p>
   <%= f.text_area :body %>
-
-    <h4>画像</h4>
+  <br>
+    <p>画像</p>
   <%= f.file_field :post_images, multiple: true %> 
-  
-  <%= f.submit '更新' %>
-  
+  <br><br>
+  <%= f.submit '更新', {class: 'btn my-custom-button'} %>
 <% end %>
+</main>

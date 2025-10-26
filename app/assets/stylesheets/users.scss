@@ -13,8 +13,19 @@ main {
   width: 100%;
 }
 
+h2, h3, h4, h5, p {
+  font-family: "Sawarabi Gothic", sans-serif;
+  color: #6C5423;
+}
+
+.subtitle {
+  font-family: "Sawarabi Gothic", sans-serif;
+  color: #6C5423;
+}
+
 .sidebar_fixed {
   position: sticky;
+  text-align: center;
   top: 60px;
 }
 
@@ -40,4 +51,8 @@ main {
   margin-left: auto;
   margin-right: auto;
   color:#6C5423;
+}
+
+.pagination {
+  justify-content: center;
 }

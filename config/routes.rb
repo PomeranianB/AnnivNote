@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get "/users/mypage" => "users#mypage", as: 'mypage'
   patch 'post/:id' => 'posts#update', as: 'update_post'
   resources :posts, only: [:new, :create, :show, :edit, :index, :destroy]
-  resources :users, only: [:show, :edit, :update, :destroy]
+  resources :users, only: [:show, :edit, :update, :destroy, :index,]
   resources :user_images, only: [:new, :create, :mypage, :destroy]
   resources :post_images, only: [:new, :create, :index, :show, :destroy]
 end

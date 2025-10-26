@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   
-  def show
-    @user = User.find(params[:id])
-    @posts = @user.posts.page(params[:page]).per(3)
+  def index
+    @user = User.find(current_user.id)
+    @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(3)
     @post = Post.new
   end
 
@@ -14,6 +14,12 @@ class UsersController < ApplicationController
   def mypage
     @user = User.find(current_user.id)
     @posts = @user.posts.order(created_at: :desc).limit(3)
+    @post = Post.new
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(6)
     @post = Post.new
   end
 

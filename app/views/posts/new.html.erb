@@ -14,7 +14,7 @@
   </ul>
 <% end %>
 
-<div style="color: #6C5423;">
+<div>
 <%= form_with model: @post do |f| %>
   <p>タイトル</p>
   <%= f.text_field :title %><br>
@@ -22,7 +22,7 @@
   <div class="form-label text-align">
   <p>本文</p>
   <%= f.text_area :body, style: "width:40%", rows: "3" %>
-  </div><br><br>
+  </div><br>
   <p>画像</p>
   <%= f.file_field :post_image %><br><br>
     <%= f.submit '投稿', {class: 'btn my-custom-button'} %>
