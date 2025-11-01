@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   background-attachment: fixed;
-  background-image: url(top_image.jpg);
+  background-image: image-url("top_image.jpg");
   background-size: cover;
   background-position: center center; 
 }
