@@ -1,0 +1,4 @@
+DB_USERNAME="root"
+DB_PASSWORD="AnivNote"
+DB_HOST="rds-mysql-server.chou0sqyeoa5.ap-northeast-1.rds.amazonaws.com"
+DB_DATABASE="AnnivNote"
