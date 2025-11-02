@@ -13,11 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
- h1, h2{
-  font-family: "Metamorphous", serif;
-}
-
-.field .actions {
-  font-family: "Sawarabi Gothic", sans-serif;
-}
