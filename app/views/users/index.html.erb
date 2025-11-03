@@ -1,7 +1,8 @@
 <main>
-  <table class="table">
+  <div id="users">
+    <table class="table">
     <thead class="text-align: center;">
-      <tr>
+      <tr style="color: #6C5423;">
         <th scope="col" style="width: 25%">イメージ</th>
         <th scope="col" style="width: 15%">イベント名</th>
         <th scope="col" style="width: 50%">内容</th>
@@ -22,12 +23,12 @@
           <% end %>
         </td>
         <td>
-          <div class = "show-post-body">
+          <div class = "show-post-body", style="color: #6C5423;">
            <%= post.body %>
           </div>
         </td>
-        <td>
-          <%= post.created_at.strftime('%Y/%m/%d') %>
+        <td style="color: #6C5423;">
+          <%= post.created_at.strftime('%Y/%m/%d')%>
         </td>
        </tr>
     </tbody>
@@ -35,4 +36,5 @@
   </table>
         
   <%= paginate @posts %>
+  </div>
 </main>
