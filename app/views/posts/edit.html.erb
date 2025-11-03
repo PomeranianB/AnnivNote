@@ -22,5 +22,7 @@
   <%= f.file_field :post_images, multiple: true %> 
   <br><br>
   <%= f.submit '更新', {class: 'btn my-custom-button'} %>
+  <%= link_to '削除', post_path(@post), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
+
 <% end %>
 </main>

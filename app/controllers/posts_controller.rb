@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
   
   def new
     @post = Post.new
@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to posts_path
+      redirect_to @post
     else
       render :new
     end
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     post.destroy
       flash[:notice] = "投稿が削除されました"
-      redirect_to posts_path
+      redirect_to mypage_path
   end
   
 private

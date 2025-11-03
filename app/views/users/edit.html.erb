@@ -16,8 +16,9 @@
   <p><label for="inputImage">プロフィール画像</label><p>
   <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %><br><br> 
   <p><label for="inputName">自己紹介</label></p>
-  <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"名前"%><br><br>  
-  <%= f.submit "変更する", {class: 'btn my-custom-button'} %>
+  <%= f.text_area :introduction,style: "width:40%", rows: "3", autofocus: true, id:"inputIntroduction", placeholder:"名前"%><br><br>  
+  <%= f.submit "変更する", {class: 'btn my-custom-button'} %><br><br>
+  <%= link_to "退会", confirm_unsubscribe_path(@current_user), class: "my-custum-link" %>
 <% end %>
 
 </main>
