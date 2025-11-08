@@ -141,5 +141,19 @@ main {
     margin-left: auto;
     margin-right: auto;
     color: #6C5423;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  .image-column {
+    width: 25%; /* 固定幅 */
+  }
+  .title-column {
+    width: 15%; /* 固定幅 */
+  }
+  .text-column {
+    width: 50%; /* 固定幅 */
+  }
+  .date-column {
+    width: 10%; /* 固定幅 */
   }
 }

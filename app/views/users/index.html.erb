@@ -3,31 +3,31 @@
     <table class="table">
     <thead class="text-align: center;">
       <tr style="color: #6C5423;">
-        <th scope="col" style="width: 25%">イメージ</th>
-        <th scope="col" style="width: 15%">イベント名</th>
-        <th scope="col" style="width: 50%">内容</th>
-        <th scope="col" style="width: 10%">投稿日時</th>
+        <th class="image-column">イメージ</th>
+        <th class="title-column">イベント名</th>
+        <th class="text-column">内容</th>
+        <th class="date-column">投稿日時</th>
       </tr>
     </thead>
     <tbody>
       <% @posts.each do |post| %>     
       <tr>
-        <td>
+        <td class="image-column">
           <%=link_to(post_path(post.id)) do %>
             <%= image_tag post.get_post_image, size: "200x200" %>
            <% end %>
         </td>
-        <td>
+        <td class="title-column">
           <%= link_to post_path(post.id) do %>
             <span style="color: #e0a019;"><%= post.title %></span>
           <% end %>
         </td>
-        <td>
+        <td class="text-column">
           <div class = "show-post-body", style="color: #6C5423;">
            <%= post.body %>
           </div>
         </td>
-        <td style="color: #6C5423;">
+        <td class="date-column", style="color: #6C5423;">
           <%= post.created_at.strftime('%Y/%m/%d')%>
         </td>
        </tr>

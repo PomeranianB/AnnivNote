@@ -1,0 +1,9 @@
+<main>
+  <% if @model == 'user' %>
+    <h3>ユーザー検索結果 "<%= @content %>"</h3>
+    <%= render 'users/show', posts: @records %>
+      
+  <% elsif @model == 'post' %>
+    <%= render 'posts/index', posts: @records %>
+  <% end %>
+</main>
