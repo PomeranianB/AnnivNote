@@ -1,1 +1,29 @@
-show
+<main>
+  <div id="users">
+      <div class="container">
+        <div class="row">
+          <% @records.each do |user| %>
+            <div class="col-md-6 col-lg-4 my-3">
+              <div class="card h-15 shadow-lg">
+                <div class="card-header text-center" style="color: #e0a019; background-color=white;">
+                  <i class="fa-solid fa-thumbtack"></i>
+                </div>
+                <div class="mx-auto mt-2">
+                  <%=link_to(user_path(user.id), class: "text-dark") do %>
+                    <%= image_tag user.get_profile_image, size: "200x200", class: "card-img-top"; %>
+                  <% end %>
+                </div>
+                <div class="card-body">
+                  <p class="card-title text-center">
+                    <%=link_to(user_path(user.id)) do %>
+                      <strong><span style="color: #a17e38;"><%= user.name %></span></strong>
+                    <% end %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</main>

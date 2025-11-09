@@ -1,11 +1,26 @@
 @use '~bootstrap/scss/bootstrap';
 
-h1, h2 {
+h1 {
   font-family: "Metamorphous", serif;
   color: #6C5423;
 }
 
-h3, h4, h5, p {
+h2 {
+  font-family: "Metamorphous", serif;
+  color: #6C5423;
+  background: linear-gradient(transparent 60%, yellow 30%);
+  display: inline-block;
+
+}
+
+h3 {
+  font-family: "Sawarabi Gothic", sans-serif;
+  color: #6C5423;
+  background: linear-gradient(transparent 60%, yellow 30%);
+  display: inline-block;
+}
+
+h4, h5, p {
   font-family: "Sawarabi Gothic", sans-serif;
   color: #6C5423;
 }
@@ -155,5 +170,10 @@ main {
   }
   .date-column {
     width: 10%; /* 固定幅 */
+  }
+  .card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1.5rem; 
   }
 }
