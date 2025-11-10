@@ -26,27 +26,27 @@
                     <% end %>
                   </p>
                   <p class="card-text text-left"><%= post.body %></p>
-                    <div class="row">
-                      <div class="col-3">
+                  <div class="row">
+                    <div class="col-3">
+                      <%=link_to(user_path(post.user_id)) do %>
+                        <%= image_tag post.user.get_profile_image, size: "60x60", class: "mt-3 rounded-circle"; %>
+                      <% end %>
+                    </div>
+                    <div class="col-7">
+                      <p class="card-username mt-4">
                         <%=link_to(user_path(post.user_id)) do %>
-                          <%= image_tag post.user.get_profile_image, size: "60x60", class: "mt-3 rounded-circle"; %>
+                          <span style="color: #e0a019;"><i class="fas fa-user"></i> By <%= post.user.name %></span>
                         <% end %>
-                      </div>
-                      <div class="col-7">
-                        <p class="card-username mt-4">
-                          <%=link_to(user_path(post.user_id)) do %>
-                            <span style="color: #e0a019;"><i class="fas fa-user"></i> By <%= post.user.name %></span>
-                          <% end %>
-                        </p>
-                      </div>
+                      </p>
                     </div>
                   </div>
-                  <div class="card-footer">
-                    <p>コメント数：<%= @post.post_comments.count %></p>
-                  </div>
+                </div>
+                <div class="card-footer">
+                  <p>コメント数：<%= post.post_comments.count %></p>
                 </div>
               </div>
-            <% end %>
+            </div>
+          <% end %>
           </div>
         </div>
       </div>

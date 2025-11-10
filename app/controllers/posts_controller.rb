@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.with_active_user.order(created_at: :desc).page(params[:page]).per(6)
     @post = Post.new
+    @post_comment = PostComment.new
   end
 
   def show
