@@ -15,6 +15,8 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
     @posts = @user.posts.order(created_at: :desc).limit(3)
     @post = Post.new
+    @latest_comments = PostComment.order(created_at: :desc).limit(3)    
+    @post_comment = PostComment.includes(:post, :user).all
   end
 
   def show

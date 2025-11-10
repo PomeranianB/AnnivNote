@@ -53,8 +53,33 @@
             </div>
           </div>
         <% end %>
+      </div><br><br>
+
+      <h3>最近のコメント</h3>
+      <div class="row">
+        <div class="mx-auto offset-lg-2">
+          <table class="table mt-5">
+            <thead>
+            <tr>
+              <th class="comment-body">コメント</th>
+              <th Class="comment-day">日時</th>
+              <th class="comment-shortcut"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @latest_comments.each do |post_comment| %>
+              <tr>
+                <td class="comment-body"><%= post_comment.comment %></td>
+                <td Class="comment-day"><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
+                <td class="comment-shortcut"><%= link_to "投稿を見る", post_path(post_comment.post), class:"btn btn-sm my-custom-button" %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 </main>
