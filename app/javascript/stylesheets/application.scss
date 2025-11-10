@@ -43,6 +43,13 @@ main {
   margin: auto;
 }
 
+.card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
 .my-custom-button {
   background-color: #6C5423;
   color: #E1C178;
@@ -50,6 +57,13 @@ main {
 
 .my-custum-link {
   color: #E1C178;
+}
+
+.dot {
+  border: none;
+  border-width: 1px 0 0 0;
+  border-top: dotted;
+  border-color: #4a2400;
 }
 
 .pagination {
@@ -100,7 +114,7 @@ main {
   }
 }
 
-#post {
+#posts {
   .post-wrap {
     display: flex;
     flex-wrap: wrap;
@@ -118,21 +132,15 @@ main {
     flex-wrap: wrap;
     row-gap: 1.5rem; 
   }
-  .card-text {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
+  .post-body {
+    text-align: left;
+    word-break: break-all;
   }
-  .container-user {
-    width: 40%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .container-show {
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
+  .custom-border-row {
+    border: 2px dashed #E1C178;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
   }
 }
 
@@ -175,5 +183,20 @@ main {
     display: flex;
     flex-wrap: wrap;
     row-gap: 1.5rem; 
+  }
+}
+
+#comments {
+  .comment-username {
+    width: 15%;
+  }
+  .comment {
+    width: 80%;
+    text-align: left;
+    color: #6C5423;
+    word-break: break-all;
+  }
+  .comment-bottun {
+    width: 15%;
   }
 }

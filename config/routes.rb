@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get "/about" => "homes#about", as: 'about'
   get "/users/mypage" => "users#mypage", as: 'mypage'
   patch 'post/:id' => 'posts#update', as: 'update_post'
-  resources :posts, only: [:new, :create, :show, :edit, :index, :destroy]
+  resources :posts, only: [:new, :create, :show, :edit, :index, :destroy, :update] do
+    resources :post_comments, only: [:create, :destroy]
+  end
   resources :users, only: [:show, :edit, :update, :destroy, :index,]
   get "search", to: "searches#search"
 end

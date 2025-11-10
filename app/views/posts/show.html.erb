@@ -1,39 +1,49 @@
 <main>
   <div id="posts">
-  <div class="container-show">
-    <div class="row, text-align: center;, mt-3, mb-3">
-      <h3 class="text-top", style="color: #a17e38;"><%= @post.title %></h3>
-    </div>
-    <div class="row">
-      <div class="col">
-        <%= image_tag  @post.get_post_image, size: "200x200" %>
+    <div class="container vh-100">
+      <div class="row">
+        <div class="sidebar_fixed, col-sm-3">
+          <div class="row, mt-3, text-center">
+            <h4><%= @user.name %></h4><br>
+          </div>
+          <div class="row, m-5, text-center">
+            <%= image_tag @user.get_profile_image %>
+          </div>
+          <div class="row, mt-5, text-center">
+            <p><br><%= @user.introduction %><br></p>
+          </div>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3">
+          <div class="row, text-align: center;, mt-3, mb-3">
+            <h3 class="text-top", style="color: #a17e38;"><%= @post.title %></h3>
+            <hr class="dot" nonshade>
+            <div class="row">
+              <div class="col">
+                <%= image_tag  @post.get_post_image, size: "200x200" %>
+              </div>
+              <div class="col-8 col-offset-3, d-flex align-items-center">
+                <div class="post-body"><%= @post.body %></div>
+              </div>
+              </div>
+              <div class="row"> 
+              <div class="col" style="color: #6C5423;">
+                <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+              </div>
+            </div>
+          </div>
+          <div class="row, text-align: center;, mt-3, mb-3">
+            <% if @post.user == current_user %>
+              <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success" %>
+              <%= link_to '削除', post_path(@post), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
+            <% end %>
+          </div>
+          <div class="row, text-align: center">
+            <%= render "post_comments/index", post: @post %><br>
+            <%= render "post_comments/form", post: @post, post_comment: @post_comment %>
+          </div>
+        </div>
       </div>
-      <div class="col-8 col-offset-4, d-flex align-items-center">
-        <p><%= @post.body %></p>
-      </div>
-    </div>
-    <div class="row, text-align: center;, mt-3, mb-3">
-    <br>
-      <% if @post.user == current_user %>
-          <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success" %>
-          <%= link_to '削除', post_path(@post), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
-      <% end %>
     </div>
   </div>
-  <div class="container-user">
-    <div class="row, mt-5, d-flex align-items-center">
-      <div class="col">
-        <%= link_to user_path(@user) do %>
-        <%= image_tag @user.get_profile_image %>
-      </div>
-      <div class="col">
-        <span style="color: #e0a019;"><%= @user.name %></span>
-        <% end %>
-      </div>
-      <div class="col" style="color: #6C5423;">
-        <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
-      </div>
-    </div>
-  </div>
-</div>
 </main>

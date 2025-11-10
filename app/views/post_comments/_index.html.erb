@@ -1,0 +1,24 @@
+<div id="comments">
+<table>
+    <hr class="dot" nonshade>
+    <p>コメント数：<%= @post.post_comments.count %></p>
+    <hr class="dot" nonshade>
+  <tbody>
+    <% post.post_comments.each do |post_comment| %>
+      <tr>
+        <td class="comment-username">
+          <%= link_to user_path(post_comment.user) do %>
+            <%= image_tag post_comment.user.get_profile_image, size: "60x60", class: "mt-3 rounded-circle"; %><br>
+            <span style="color: #e0a019;"><%= post_comment.user.name %></span>
+          <% end %>
+        </td>
+        <td class="comment"><%= post_comment.comment %></td>
+        <td class="comment-bottun">
+          <% if post_comment.user == current_user %>
+            <%= link_to "削除", post_post_comment_path(post, post_comment), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
