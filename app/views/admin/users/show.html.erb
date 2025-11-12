@@ -13,15 +13,9 @@
         <p><br><%= @user.introduction %><br></p>
       </div>
       <div class="row, mt-3, text-center">
-        <% if @user == current_user %>
-          <a class="btn my-custom-button" href="/users/:id/edit" role="button">プロフィール編集</a>
-        <% end %>
-      </div>
-      <div class="row, mt-3, text-center">
-      <br>
-        <% if user_signed_in? && @user == current_user %>
-          <%= link_to "退会", confirm_unsubscribe_path(@current_user), class: "my-custum-link" %>
-        <% end %>
+        <br>
+        <%= @user.email %><br><br>
+        <%= link_to '退会させる', admin_user_path(@user), method: :delete, data: { confirm: '本当に退会させますか？' }, class:"btn btn-sm my-custom-button" %> 
       </div>
     </div>
 

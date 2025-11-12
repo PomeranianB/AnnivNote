@@ -1,6 +1,20 @@
-<h2>Log in</h2>
 
-<%= form_with model: @admin, url: session_path(resource_name), local: true do |f| %>  <div class="field">
+<main>
+<%=link_to(root_path, class: "text-dark") do %>
+  <h1>Annv. Note</h1>
+<% end %>
+  <h2>Admin Log in</h2>
+
+<%= flash[:error] %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+<%= form_with model: @admin, url: session_path(resource_name), local: true do |f| %>  
+
+<%= render "devise/shared/error_messages", resource: resource %>
+<%= yield %>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -18,8 +32,9 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン", {class: 'btn my-custom-button'}  %>
   </div>
 <% end %>
 
 <%= render "admin/shared/links" %>
+</main>
