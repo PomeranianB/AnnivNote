@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  get 'groups/new'
+  get 'groups/index'
+  get 'groups/show'
+  get 'groups/edit'
   devise_for :admin, skip: [:registrations, :password], controllers: {
     sessions: 'admin/sessions'
   }
   namespace :admin do
     get 'dashboards', to: 'dashboards#index'
     resources :users, only: [:destroy, :show]
+    resources :post_comments, only: [:index, :destroy]
   end
 
   devise_for :users, controllers: {
@@ -26,4 +31,5 @@ Rails.application.routes.draw do
     resources :post_comments, only: [:create, :destroy, :mypage]
   end
   get "search", to: "searches#search"
+  resources :groups, only: [:new, :index, :show, :create, :edit, :update]
 end
