@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'groups/new'
-  get 'groups/index'
-  get 'groups/show'
-  get 'groups/edit'
   devise_for :admin, skip: [:registrations, :password], controllers: {
     sessions: 'admin/sessions'
   }
@@ -31,5 +27,6 @@ Rails.application.routes.draw do
     resources :post_comments, only: [:create, :destroy, :mypage]
   end
   get "search", to: "searches#search"
-  resources :groups, only: [:new, :index, :show, :create, :edit, :update]
+  get "/groups/mygroup" => "groups#mygroup", as: 'mygroup'
+  resources :groups, only: [:index, :new, :create, :edit, :update, :show]
 end

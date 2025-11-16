@@ -3,6 +3,9 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
 
+  def home
+  end
+
   def new
     @group = Group.new
   end
@@ -52,5 +55,6 @@ class GroupsController < ApplicationController
       unless @group.owner_id == current_user.id
         redirect_to groups_path
       end
+    end
 
 end
