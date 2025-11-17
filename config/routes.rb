@@ -28,5 +28,7 @@ Rails.application.routes.draw do
   end
   get "search", to: "searches#search"
   get "/groups/mygroup" => "groups#mygroup", as: 'mygroup'
-  resources :groups, only: [:index, :new, :create, :edit, :update, :show]
+  resources :groups, only: [:index, :new, :create, :edit, :update, :show] do
+    resource :group_users, only: [:create, :destroy]
+  end
 end

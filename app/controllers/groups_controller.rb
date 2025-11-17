@@ -3,7 +3,8 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
 
-  def home
+  def mygroup
+
   end
 
   def new
@@ -25,8 +26,9 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
+    @group.users << current_user
     if @group.save
-      redirect_to groups_path
+      redirect_to groups_path(@group.id)
     else
       render :new
     end
@@ -37,11 +39,24 @@ class GroupsController < ApplicationController
   end
 
   def update
+    @group = Group.find(params[:id])
     if @group.update(group_params)
-      redirect_to groups_path
+      redirect_to group_path(@group.id)
     else
       render :edit
     end
+  end
+
+  def join
+    @group = Group.find(params[:group_id])
+    @group.users << current_user
+    redirect_to  groups_path
+  end
+
+  def destroy
+    @group = Group.find(params[:id])
+    @group.users.delete(current_user)
+    redirect_to groups_path
   end
 
   private

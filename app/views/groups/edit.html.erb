@@ -3,31 +3,43 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h2>Editing Group</h2>
+      <h3>グループ編集</h3><br><br>
 
       <%= form_with model: @group, local: true do |f| %>
+        <% if @group.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= @group.errors.count %> つのエラーが発生しました。</h2>
+            <ul>
+              <% @group.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-  <div class="form-group">
-    <%= f.label :グループ名 %>
-    <%= f.text_field :name, class: "form-control" %>
-  </div>
+        <div class="form-group">
+          <p><%= f.label :グループ名 %></p>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
 
-  <div class="form-group">
-    <%= f.label :紹介文 %>
-    <%= f.text_area :introduction, class: "form-control" %>
-  </div>
+        <div class="form-group">
+          <p><%= f.label :紹介文 %></p>
+          <%= f.text_area :introduction, class: "form-control" %>
+        </div>
 
-  <div class="form-group">
-    <%= f.label :グループ画像 %>
-    <%= f.file_field :group_image, class: "form-control-file", accept: "image/*" %>
-  </div>
+        <div class="form-group">
+          <p><%= f.label :グループ画像 %><p>
+          <p><%= f.file_field :group_image, class: "form-control-file", accept: "image/*" %></p>
+        </div>
 
-  <div class="form-group">
-    <%= f.submit class: "btn btn-info" %>
-  </div>
+        <div class="form-group">
+          <%= f.submit class: "btn my-custom-button" %>
+        </div>
 
-<% end %>
+      <% end %>
+        
     </div>
+    <%= link_to '戻る', group_path(@group.id), class: "my-custum-link" %>
   </div>
 </div>
 </main>

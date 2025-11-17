@@ -1,16 +1,17 @@
 <main>
 <h2 class="subtitle">マイプロフィール編集</h2>
 
-<% if @user.errors.any? %>
-  <%= @user.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <%= form_with model: @user do |f| %>
+
+  <% if @user.errors.any? %>
+    <%= @user.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <p><label for="inputName">名前</label></p>
   <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%><br><br>
   <p><label for="inputImage">プロフィール画像</label><p>
