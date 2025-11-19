@@ -18,22 +18,22 @@
         <% end %>
 
         <div class="form-group">
-          <p><%= f.label :グループ名 %></p>
+          <p><%= f.label :"グループ名" %></p>
           <%= f.text_field :name, class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <p><%= f.label :1口コメント %></p>
+          <p><%= f.label :"ひとこと" %></p>
           <%= f.text_area :short_comment, class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <p><%= f.label :紹介文 %></p>
+          <p><%= f.label :"紹介文" %></p>
           <%= f.text_area :introduction, class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <p><%= f.label :グループ画像 %><p>
+          <p><%= f.label :"グループ画像" %><p>
           <p><%= f.file_field :group_image, class: "form-control-file", accept: "image/*" %></p>
         </div>
 
