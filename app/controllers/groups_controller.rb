@@ -4,7 +4,8 @@ class GroupsController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
 
   def mygroup
-
+    @owned_groups = current_user.owned_groups    
+    @my_groups = current_user.groups
   end
 
   def new
@@ -27,6 +28,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
     if @group.save
+      @group_user = @group.owner
       redirect_to groups_path
     else
       render :new
@@ -65,7 +67,7 @@ class GroupsController < ApplicationController
   private
 
     def group_params
-      params.require(:group).permit(:name, :introduction, :group_image)
+      params.require(:group).permit(:name, :short_comment, :introduction, :group_image)
     end
 
     def ensure_correct_user

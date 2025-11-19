@@ -18,6 +18,11 @@
           <p><%= f.label :グループ名 %></p>
           <%= f.text_field :name, autofocus: true, class: "form-control" %>
         </div>
+        
+        <div class="form-group">
+          <p><%= f.label :"ひとこと" %></p>
+          <%= f.text_field :short_comment, class: "form-control" %>
+        </div>
 
         <div class="form-group">
           <p><%= f.label :紹介文 %></p>

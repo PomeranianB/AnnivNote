@@ -4,9 +4,10 @@ class Group < ApplicationRecord
   belongs_to :owner, class_name: "User"
 
   validates :name, presence: true
+  validates :short_comment, presence: true
   validates :introduction, presence: true
   has_one_attached :group_image
-  has_many :permits,     dependent: :destroy
+  has_many :permits, dependent: :destroy
   has_many :users, through: :group_users, source: :user
 
   def get_group_image
