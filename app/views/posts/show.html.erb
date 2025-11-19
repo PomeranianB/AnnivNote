@@ -38,6 +38,20 @@
               <%= link_to '削除', post_path(@post), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
             <% end %>
           </div>
+          <div class="fav">
+            <% if @post.favorited_by?(current_user) %>
+                <%= link_to post_favorite_path(@post), method: :delete do %>
+                  <span style="color: #631414;">♥<%= @post.favorites.count %> いいね</span>
+                <% end %>
+              </p>
+            <% else %>
+              <p>
+                <%= link_to post_favorite_path(@post), method: :post do %>
+                  <span style="color: #631414;">♡<%= @post.favorites.count %> いいね</span>
+                <% end %>
+              </p>
+            <% end %>
+          </div>
           <div class="row, text-align: center">
             <%= render "post_comments/index", post: @post %><br>
             <%= render "post_comments/form", post: @post, post_comment: @post_comment %>

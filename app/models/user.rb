@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users, dependent: :destroy
   has_many :owned_groups, class_name: "Group", foreign_key: 'owner_id' 
   has_many :permits, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   validates :name, uniqueness: true, length: { in: 2..20 }
   validates :introduction, length: { maximum: 50 }
