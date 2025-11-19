@@ -6,6 +6,7 @@ class Group < ApplicationRecord
   validates :name, presence: true
   validates :introduction, presence: true
   has_one_attached :group_image
+  has_many :permits,     dependent: :destroy
   has_many :users, through: :group_users, source: :user
 
   def get_group_image
@@ -16,7 +17,7 @@ class Group < ApplicationRecord
     owner.id == user.id
   end
 
-  def includesUser?(user)
+  def include_user?(user)
     group_users.exists?(user_id: user.id)
   end
 

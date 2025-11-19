@@ -17,7 +17,10 @@
       <td><p><%= group.group_users.count %></p></td>
       <td><%= link_to "詳細", group, class: "group_#{group.id}" %></td>
       <% if group.is_owned_by?(current_user) %>
-        <td><%= link_to "編集", edit_group_path(group), class: "btn my-custom-button group_#{group.id}" %></td>
+        <td>
+          <%= link_to "編集", edit_group_path(group), class: "btn btn-sm btn-success group_#{group.id}" %>
+          <%= link_to "削除", group_path(group), class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "本当にグループを消しますか？"} %>
+        </td>
       <% end %>
     </tr>
     <% end %>

@@ -28,7 +28,9 @@ Rails.application.routes.draw do
   end
   get "search", to: "searches#search"
   get "/groups/mygroup" => "groups#mygroup", as: 'mygroup'
-  resources :groups, only: [:index, :new, :create, :edit, :update, :show] do
+  resources :groups, only: [:index, :new, :create, :edit, :update, :show, :destroy] do
+    resource :permits, only: [:create, :destroy] 
     resource :group_users, only: [:create, :destroy]
   end
+  get "groups/:id/permits" => "groups#permits", as: :permits
 end

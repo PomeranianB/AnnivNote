@@ -20,15 +20,14 @@ class GroupsController < ApplicationController
   def show
     @post = Post.new
     @group = Group.find(params[:id])
-    @user = User.find(current_user.id)
+    @user =  User.find(current_user.id)
   end
 
   def create
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
-    @group.users << current_user
     if @group.save
-      redirect_to groups_path(@group.id)
+      redirect_to groups_path
     else
       render :new
     end
@@ -39,14 +38,18 @@ class GroupsController < ApplicationController
   end
 
   def update
-    @group = Group.find(params[:id])
     if @group.update(group_params)
-      redirect_to group_path(@group.id)
+      redirect_to group_path
     else
       render :edit
     end
   end
 
+  def permits
+    @group = Group.find(params[:id])
+    @permits = @group.permits.page(params[:page])
+  end
+  
   def join
     @group = Group.find(params[:group_id])
     @group.users << current_user
@@ -54,8 +57,8 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    @group = Group.find(params[:id])
-    @group.users.delete(current_user)
+    group = Group.find(params[:id])
+    group.destroy
     redirect_to groups_path
   end
 
@@ -68,7 +71,7 @@ class GroupsController < ApplicationController
     def ensure_correct_user
       @group = Group.find(params[:id])
       unless @group.owner_id == current_user.id
-        redirect_to groups_path
+        redirect_to groups_path, alert: "グループオーナーのみ編集が可能です"
       end
     end
 
