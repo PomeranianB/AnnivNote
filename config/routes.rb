@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get "/about" => "homes#about", as: 'about'
   get "/users/mypage" => "users#mypage", as: 'mypage'
-  get "/users/favorites" => "users#favorites", as: 'fav' 
   patch 'post/:id' => 'posts#update', as: 'update_post'
   resources :posts, only: [:new, :create, :show, :edit, :index, :destroy, :update] do
     resource :favorite, only: [:create, :destroy]
@@ -34,7 +33,7 @@ Rails.application.routes.draw do
   get "/groups/mygroup" => "groups#mygroup", as: 'mygroup'
   resources :groups, only: [:index, :new, :create, :edit, :update, :show, :destroy] do
     resource :permits, only: [:create, :destroy] 
-    resource :group_users, only: [:create, :destroy]
+    resource :group_users, only: [:create, :destroy, :show]
   end
   get "groups/:id/permits" => "groups#permits", as: :permits
 end

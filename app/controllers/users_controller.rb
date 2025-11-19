@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:favorites]
   
   def index
     @user = User.find(current_user.id)
@@ -35,7 +34,7 @@ class UsersController < ApplicationController
       render :edit
      end
   end
-
+  
   def unsubscribe
     @user = User.find_by(params[:id])
   end

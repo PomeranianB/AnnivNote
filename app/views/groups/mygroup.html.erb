@@ -1,17 +1,28 @@
 <main>
 
   <div>
-  <%= link_to "グループを作成する", new_group_path %>｜<%= link_to "全グループ一覧", groups_path %>
+    <%= link_to new_group_path do %>
+      <i class= "fa-solid fa-person-shelter", style="color: #423210;">グループを作成する</i>
+    <% end %>
+    ｜
+    <%= link_to groups_path do %>
+      <i class= "fa-solid fa-clipboard-list", style="color: #423210;"> 全グループ一覧</i>
+    <% end %>
   </div>
   <br>
-  
+  <div>
   <h3>主催しているグループ</h3>
-    <ul>
-      <% @owned_groups.each do |group| %>
-        <li><h5><%= link_to group.name, group_path(group) %></h5></li>
-      <% end %>
-    </ul>
-
+    <% if @owned_groups.any? %>
+      <ul>
+        <% @owned_groups.each do |group| %>
+          <li><h5><%= link_to group.name, group_path(group) %></h5></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>主催しているグループはありません。</p>
+    <% end %>
+  </div><br>
+  <div>
   <h3>参加しているグループ</h3>
     <% if @my_groups.any? %>
       <ul>
@@ -22,7 +33,7 @@
         <% end %>
       </ul>
     <% else %>
-      <p>所属しているグループはありません。</p>
+      <p>参加しているグループはありません。</p>
     <% end %>
-
+  </div>
 </main>

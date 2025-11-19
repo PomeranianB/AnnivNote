@@ -2,11 +2,11 @@
 <div id="groups">
   <div>
     <h3>グループ詳細</h3>
-
+    <br>
      <div>
       <% if @group.owner_id == current_user.id %>
-        <%= link_to "承認待ち一覧", permits_path(@group),  class: "dropdown-item text-secondary bg-transparent" %>
-      <% end %><br>
+        <%= link_to "承認待ち一覧", permits_path(@group),  class: "text-secondary bg-transparent" %>
+      <% end %><br><br>
     </div>
 
     <table class="table table-hover table-inverse">
@@ -26,14 +26,15 @@
           <td><%= @group.name %></td>
           <td>
             <%= image_tag @group.owner.get_profile_image, size: "50x50"%>  
-            　<%= @group.owner.name %>
+            　<%= link_to @group.owner.name, user_path(@user.id) %>
+
           </td>
           <td><%= @group.introduction %></td>
           <td>
             <% @group.users.each do |user| %>
               <li style="list-style: none;">
                 <%= image_tag user.get_profile_image, size: "50x50"%>
-                　<%= user.name %>
+                　<%= link_to user.name, user_path(user.id) %>
               </li>
             <% end %>
           </td>

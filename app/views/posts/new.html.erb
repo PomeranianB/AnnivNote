@@ -1,27 +1,28 @@
 <main>
-<h3>投稿フォーム</h3>
-
-<% if @post.errors.any? %>
-  <%= @post.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @post.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+  <h3>投稿フォーム</h3>
+  <div>
+    <% if @post.errors.any? %>
+      <p><%= @post.errors.count %>件のエラーが発生しました</p>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><p><%= message %></p></li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
+  </div>
 
-<div>
-<%= form_with model: @post do |f| %>
-  <p>タイトル</p>
-  <%= f.text_field :title %><br>
-  <br>
-  <div class="form-label text-align">
-  <p>本文</p>
-  <%= f.text_area :body, style: "width:40%", rows: "3" %>
-  </div><br>
-  <p>画像</p>
-  <%= f.file_field :post_image %><br><br>
-    <%= f.submit '投稿', {class: 'btn my-custom-button'} %>
-<% end %>
-</div>
+  <div>
+    <%= form_with model: @post do |f| %>
+      <p>タイトル</p>
+      <%= f.text_field :title %><br>
+      <br>
+      <div class="form-label text-align">
+        <p>本文</p>
+        <%= f.text_area :body, style: "width:40%", rows: "3" %>
+      </div><br>
+      <p>画像</p>
+      <p><%= f.file_field :post_image %><br><br></p>
+      <%= f.submit '投稿', {class: 'btn my-custom-button'} %>
+    <% end %>
+  </div>
 </main>
