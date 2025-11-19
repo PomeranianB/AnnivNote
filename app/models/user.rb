@@ -11,7 +11,6 @@ class User < ApplicationRecord
   has_many :group_users, dependent: :destroy
   has_many :permits, dependent: :destroy
 
-
   validates :name, uniqueness: true, length: { in: 2..20 }
   validates :introduction, length: { maximum: 50 }
 

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     get 'dashboards', to: 'dashboards#index'
     resources :users, only: [:destroy, :show]
     resources :post_comments, only: [:index, :destroy]
+    resources :posts, only: [:show]
+    resources :groups, only: [:index, :destroy]
   end
 
   devise_for :users, controllers: {
