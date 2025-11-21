@@ -4,6 +4,12 @@ class Users::SessionsController < Devise::SessionsController
   before_action :reject_inactive_user, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
 
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    redirect_to mypage_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
   # GET /resource/sign_in
   # def new
   #   super
@@ -33,7 +39,6 @@ class Users::SessionsController < Devise::SessionsController
     else
       flash[:notice] = "該当するユーザーが見つかりません"
     end
-
   end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params

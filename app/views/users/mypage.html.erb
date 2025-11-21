@@ -12,17 +12,15 @@
       <div class="row, mt-5, text-center">
         <p><br><%= @user.introduction %><br></p>
       </div>
-      <div class="row, mt-3, text-center">
-        <% if @user == current_user %>
+      <% if @user.email != "guestuser@example.com" %>
+        <div class="row, mt-3, text-center">
           <a class="btn my-custom-button" href="/users/:id/edit" role="button">プロフィール編集</a>
-        <% end %>
-      </div>
-      <div class="row, mt-3, text-center">
-      <br>
-        <% if user_signed_in? && @user == current_user %>
+        </div>
+        <div class="row, mt-3, text-center">
+        <br>
           <%= link_to "退会", confirm_unsubscribe_path(@current_user), class: "my-custum-link" %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
 
     <div class="col-sm-9 col-sm-offset-3">

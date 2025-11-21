@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   validates :name, uniqueness: true, length: { in: 2..20 }
   validates :introduction, length: { maximum: 50 }
-
+ 
   def get_profile_image
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
@@ -37,6 +37,13 @@ class User < ApplicationRecord
       User.where('name LIKE ?', '%' + content)
     else
       User.where('name LIKE ?', '%' + content + '%')
+    end
+  end
+ 
+  def self.guest
+    find_or_create_by!(email: "guestuser@example.com") do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "GuestUser"
     end
   end
 
