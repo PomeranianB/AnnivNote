@@ -5,18 +5,9 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h3>グループ編集</h3><br><br>
 
-      <%= form_with model: @group, local: true do |f| %>
-        <% if @group.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= @group.errors.count %> つのエラーが発生しました。</h2>
-            <ul>
-              <% @group.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
+      <%= render "devise/shared/error_messages", resource: @group %>
 
+      <%= form_with model: @group, local: true do |f| %>
         <div class="form-group">
           <p><%= f.label :"グループ名" %></p>
           <%= f.text_field :name, class: "form-control" %>

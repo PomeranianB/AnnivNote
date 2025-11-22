@@ -25,37 +25,7 @@
 
     <div class="col-sm-9 col-sm-offset-3">
       <h3>最近の投稿　(3件)</h3>
-      <div class="card-deck">
-        <% @posts.each do |post| %>
-          <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-lg">
-              <div class="card-header text-center" style="color: #e0a019; background-color=white;">
-                <i class="fa-solid fa-thumbtack"></i>
-              </div>
-              <div class="mx-auto mt-2">
-                <%=link_to(post_path(post.id), class: "text-dark") do %>
-                  <%= image_tag post.get_post_image, size: "200x200", class: "card-img-top"; %>
-                <% end %>
-              </div>
-              <div class="card-body">
-                <p class="card-title text-left">
-                <%=link_to(post_path(post.id)) do %>
-                  <strong><span style="color: #a17e38;"><i class="fa-solid fa-thumbtack"></i><%= post.title %></span></strong>
-                <% end %>
-                </p>
-                <p class="card-text text-left" style="color: #82652a;"><%= post.body %></p>
-              </div>
-              <div class="card-footer">
-                <p>
-                  コメント数：<%= post.post_comments.count %>
-                  <br>
-                  ♥： <%= post.favorites.count %>
-                  </p>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div><br><br>
+      <%= render 'posts/card', posts: @posts %>
 
       <h3>最近のコメント　(3件)</h3>
       <div class="row">

@@ -27,37 +27,8 @@
 
     <div class="col-sm-9 col-sm-offset-3">
       <h3>記念日<i class="fa-solid fa-cake-candles"></i>投稿一覧</h3><br>
-      <div class="card-deck">
-        <% @posts.each do |post| %>
-          <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-lg">
-              <div class="card-header text-center" style="color: #e0a019; background-color=white;">
-                <i class="fa-solid fa-thumbtack"></i>
-              </div>
-              <div class="mx-auto mt-2">
-                <%=link_to(post_path(post.id), class: "text-dark") do %>
-                  <%= image_tag post.get_post_image, size: "200x200", class: "card-img-top"; %>
-                <% end %>
-              </div>
-              <div class="card-body">
-                <p class="card-title text-left">
-                <%=link_to(post_path(post.id)) do %>
-                  <strong><span style="color: #a17e38;"><i class="fa-solid fa-thumbtack"></i><%= post.title %></span></strong>
-                <% end %>
-                </p>
-                <p class="card-text text-left"><%= post.body %></p>
-              </div>
-              <div class="card-footer">
-              <p>
-                  コメント数：<%= post.post_comments.count %>
-                  <br>
-                  ♥： <%= post.favorites.count %>
-                  </p>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
+      <%= render 'posts/card', posts: @posts %>
+      
       <div class="my-3">
       <%= paginate @posts %><br><br>
       </div>

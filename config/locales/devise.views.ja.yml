@@ -2,15 +2,24 @@ ja:
   activerecord:
     attributes:
       user:
+        name: "名前"
         current_password: "現在のパスワード"
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
-      post:
+      post: 
         title: "タイトル"
         body: "本文"
+      group:
+        name: "グループ名"
+        short_comment: "ひとこと"
+        introduction: "紹介文"
     models:
+      favorite: "いいね"
+      group: "グループ"
+      post_comment: "コメント"
+      post: "投稿"
       user: "ユーザ"
   devise:
     confirmations:

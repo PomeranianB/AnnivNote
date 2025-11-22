@@ -10,6 +10,11 @@ class Users::SessionsController < Devise::SessionsController
     redirect_to mypage_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
+  def destroy
+    reset_guest_data if current_user.email == "guestuser@example.com"
+    super
+  end
+
   # GET /resource/sign_in
   # def new
   #   super

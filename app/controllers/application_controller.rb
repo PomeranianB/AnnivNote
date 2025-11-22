@@ -16,6 +16,13 @@ class ApplicationController < ActionController::Base
     self.class.module_parent_name == 'Admin'
   end
 
+  def reset_guest_data
+    guest_user = User.find_by(email: "guestuser@example.com")      
+    guest_user.posts.destroy_all if guest_user.posts.any?
+    guest_user.post_comments.destroy_all if guest_user.post_comments.any?
+    guest_user.groups.destroy_all if guest_user.groups.any?
+  end
+
   protected
 
   def configure_permitted_parameters
