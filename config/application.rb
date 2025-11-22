@@ -11,12 +11,12 @@ module AnnivNote
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
     config.i18n.default_locale = :ja
-    config.after_initialize do
-      guest_user = User.find_or_create_by(email: "gesutuser@example.com")      
-      guest_user.posts.each { |post| post.destroy } if guest_user.posts.any?
-      guest_user.post_comments.each { |comment| comment.destroy } if guest_user.post_comments.any?
-      guest_user.groups.each { |group| group.destroy } if guest_user.groups.any?
-    end
+#    config.after_initialize do
+#      guest_user = User.find_or_create_by(email: "gesutuser@example.com")      
+#      guest_user.posts.each { |post| post.destroy } if guest_user.posts.any?
+#      guest_user.post_comments.each { |comment| comment.destroy } if guest_user.post_comments.any?
+#      guest_user.groups.each { |group| group.destroy } if guest_user.groups.any?
+#    end
 
     # Configuration for the application, engines, and railties goes here.
     #

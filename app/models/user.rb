@@ -41,10 +41,15 @@ class User < ApplicationRecord
   end
  
   def self.guest
+    guest = find_by(email: "guestuser@example.com")
+    guest.destroy if (guest)
+    
     find_or_create_by!(email: "guestuser@example.com") do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "GuestUser"
     end
+    
+
   end
 
 end
