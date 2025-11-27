@@ -12,7 +12,7 @@
   <%= f.text_area :body, style: "width:40%", rows: "3" %>
   <br><br>
     <p>画像</p>
-  <%= f.file_field :post_image %> 
+  <%= f.file_field :post_image, placeholder: "投稿画像", accept: "image/*" %> 
   <br><br>
   <%= f.submit '更新', {class: 'btn my-custom-button'} %>
   <%= link_to '削除', post_path(@post), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
